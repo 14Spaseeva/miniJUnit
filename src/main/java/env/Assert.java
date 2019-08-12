@@ -11,23 +11,6 @@ public class Assert {
 
     }
 
-    private static void failAssert(boolean condition, String message) {
-
-        if (!condition) {
-            if ((message != null) && (!message.isEmpty())) {
-                throw new AssertError(message);
-            } else {
-                throw new AssertError();
-            }
-        }
-    }
-
-    private static void failAssert(boolean condition) {
-        if (!condition) {
-            throw new AssertError();
-        }
-    }
-
     /**
      * Asserts the condition is true. Otherwise {@link AssertError} would be thrown
      *
@@ -66,4 +49,20 @@ public class Assert {
         failAssert(!condition);
     }
 
+    private static void failAssert(boolean condition) {
+        if (!condition) {
+            throw new AssertError();
+        }
+    }
+
+    private static void failAssert(boolean condition, String message) {
+
+        if (!condition) {
+            if ((message != null) && (!message.isEmpty())) {
+                throw new AssertError(message);
+            } else {
+                throw new AssertError();
+            }
+        }
+    }
 }
