@@ -1,7 +1,5 @@
 package env;
 
-import exceptions.AssertError;
-
 /**
  * This class provides ability to assert conditions for unit tests
  */

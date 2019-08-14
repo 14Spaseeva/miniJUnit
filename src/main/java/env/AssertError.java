@@ -1,9 +1,9 @@
-package exceptions;
+package env;
 
 /**
  * This class is a subclass of {@link Error} should be used for indication assert fails.
  */
-public class AssertError extends Error {
+class AssertError extends Error {
 
     private static final String ASSERT_INFO = "Assertion fail:%n%s";
 

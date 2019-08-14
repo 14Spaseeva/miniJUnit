@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class MiniJUnitCore {
 
@@ -12,32 +11,26 @@ public class MiniJUnitCore {
 
     public static void main(String[] args) {
 
-        System.exit(MiniJUnitCore.runTestClasses(args).getStatus()
-                            ? 0
-                            : 1);
-    }
+        String classes = "debug.MySpec";
+        Actuator actuator = new Actuator(ArgumentParser.getTestSpecs(classes));
+        actuator.run();
 
-    private static Result runTestClasses(String... classes) {
-
-        List<TestSpec> testSpecs = ArgumentParser.getTestSpecs(classes);
-        testSpecs.forEach(TestSpec::invokeTestCases);
-        return null; // todo
     }
 
     private static class ArgumentParser {
 
         private final static String ERR_DESCRIPTION = "Test specification class %s could not be found.";
 
-        private static ArrayList<TestSpec> getTestSpecs(String... args) {
+        private static ArrayList<TestSpec> getTestSpecs(String... jsuits) {
             ArrayList<TestSpec> testSpecs = new ArrayList<>();
-            Arrays.stream(args).forEach(arg ->
-                                        {
-                                            try {
-                                                testSpecs.add(new TestSpec(Class.forName(arg)));
-                                            } catch (Exception ignored) {
-                                                log.error(String.format(ERR_DESCRIPTION, arg));
-                                            }
-                                        });
+            Arrays.stream(jsuits).forEach(jsuit ->
+                                          {
+                                              try {
+                                                  testSpecs.add(new TestSpec(Class.forName(jsuit)));
+                                              } catch (ClassNotFoundException e) {
+                                                  log.error(String.format(ERR_DESCRIPTION, jsuit));
+                                              }
+                                          });
             return testSpecs;
         }
 
