@@ -35,12 +35,7 @@ class TestSpec {
     }
 
     void invokeTestCases() {
-        reverseOrder();
         testCases.forEach(this::invokeTestCase);
-    }
-
-    private void reverseOrder() {
-        //todo
     }
 
     private void invokeTestCase(Method testCase) {

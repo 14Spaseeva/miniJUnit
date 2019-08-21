@@ -11,8 +11,9 @@ public class MiniJUnitCore {
 
     public static void main(String[] args) {
 
-        String classes = "debug.MySpec";
-        Actuator actuator = new Actuator(ArgumentParser.getTestSpecs(classes));
+        //as an example u use test class "debug.MySpec";
+
+        Actuator actuator = new Actuator(ArgumentParser.getTestSpecs(args));
         actuator.run();
 
     }
