@@ -5,10 +5,6 @@ package env;
  */
 public class Assert {
 
-    protected Assert() {
-
-    }
-
     /**
      * Asserts the condition is true. Otherwise {@link AssertError} would be thrown
      *
@@ -41,7 +37,7 @@ public class Assert {
     /**
      * Asserts the condition is false. Otherwise {@link AssertError} would be thrown
      *
-     * @param condition
+     * @param condition boolean parameter to be asserted
      */
     public static void assertFalse(boolean condition) {
         failAssert(!condition);
@@ -54,7 +50,6 @@ public class Assert {
     }
 
     private static void failAssert(boolean condition, String message) {
-
         if (!condition) {
             if ((message != null) && (!message.isEmpty())) {
                 throw new AssertError(message);
@@ -62,5 +57,9 @@ public class Assert {
                 throw new AssertError();
             }
         }
+    }
+
+    private Assert() {
+        throw new IllegalStateException("Utility class cannot be initialised");
     }
 }

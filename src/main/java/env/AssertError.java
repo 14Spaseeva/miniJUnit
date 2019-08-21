@@ -10,7 +10,7 @@ class AssertError extends Error {
     /**
      * The constructor of a new error without detail message
      */
-    public AssertError() {
+    AssertError() {
         super();
     }
 
@@ -19,7 +19,7 @@ class AssertError extends Error {
      *
      * @param message The detail message
      */
-    public AssertError(String message) {
+    AssertError(String message) {
         super(String.format(ASSERT_INFO, message));
     }
 }

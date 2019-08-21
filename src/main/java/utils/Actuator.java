@@ -17,8 +17,6 @@ class Actuator {
     }
 
     void run() {
-
         this.testSpecs.forEach(TestSpec::invokeTestCases);
-
     }
 }

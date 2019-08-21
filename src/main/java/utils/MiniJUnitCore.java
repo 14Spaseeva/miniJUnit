@@ -10,12 +10,9 @@ public class MiniJUnitCore {
     private static final Logger log = Logger.getLogger(MiniJUnitCore.class);
 
     public static void main(String[] args) {
-
         //as an example u use test class "debug.MySpec";
-
         Actuator actuator = new Actuator(ArgumentParser.getTestSpecs(args));
         actuator.run();
-
     }
 
     private static class ArgumentParser {
